@@ -23,12 +23,22 @@ public class BookController {
     }
 
     @RequestMapping("")
-    ModelAndView getAllBooks(){
-        List<Book> bookList = bookService.getAllBooks();
+    ModelAndView getAllBooks(@RequestParam String search, @RequestParam String searchType, @RequestParam String sort){
+        List<Book> bookList = bookService.getAllBooks(search, searchType, sort);
         BooksPageModel booksPageModel = new BooksPageModel();
+        booksPageModel.setSearchWord(search);
+        booksPageModel.setSearchType(searchType);
+        booksPageModel.setSortBy(sort);
         booksPageModel.setBookList(bookList);
 
         return new ModelAndView("books", "model", booksPageModel);
     }
+    
+//    @RequestMapping("")
+//    ModelAndView getAllBooksSorted(@RequestParam String books, @RequestParam String sortBy, @RequestParam String sortType){
+//        bookService.searchForBooks(books, sortBy, sortType);
+//        return null;
+//    }
+
 
 }

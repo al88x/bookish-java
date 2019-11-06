@@ -11,4 +11,5 @@ public abstract class DatabaseService {
     private final String connectionString = "jdbc:mysql://" + hostname + "/" + database + "?user=" + user + "&password=" + password + "&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT&useSSL=false";
 
     protected final Jdbi jdbi = Jdbi.create(connectionString);
+
 }

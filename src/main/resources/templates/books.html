@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+
 <!--@thymesVar id="model" type="org.softwire.training.bookish.models.page.BooksPageModel"-->
 
 <head>
@@ -8,6 +10,7 @@
     <link rel="stylesheet" href="/styles/general.css"/>
     <link rel="stylesheet" href="/styles/navbar.css"/>
     <link rel="stylesheet" href="/styles/index.css"/>
+    <link rel="stylesheet" href="/styles/books.css"/>
 </head>
 
 <body>
@@ -17,13 +20,43 @@
 </div>
 
 <div class="container">
+    <form href="/books" method="get" class="inline">
+        <input placeholder="Search..." name="search" th:value="${model.getSearchWord()}" class="search_bar">
+        <input type="hidden" name="searchType" th:value="${model.getSearchType().filter}">
+        <input type="hidden" name="sort" th:value="${model.getSortBy().filter}">
+        <div class="dropdown">
+            <button th:text="${model.getSearchType().displayName}" class="dropbtn"></button>
+            <div class="dropdown-content">
+                <div th:each="searchType : ${model.getSearchTypeValues()}">
+                    <a th:href="@{'/books?search=' + ${model.getSearchWord()} + '&searchType=' + ${searchType.filter} +
+                    '&sort=' + ${model.getSortBy().filter}}"
+                       th:text="${searchType.displayName}"/>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button th:text="${model.getSortBy().displayName}" class="dropbtn"></button>
+            <div class="dropdown-content">
+                <div th:each="sortBy : ${model.getSortByValues()}">
+                    <a th:href="@{'/books?search=' + ${model.getSearchWord()} + '&searchType=' + ${model.getSearchType().filter} +
+                    '&sort=' + ${sortBy.filter}}"
+                       th:text="${sortBy.displayName}"/>
+                </div>
+            </div>
+        </div>
+    </form>
+
     <div class="jumbotron">
-        <div class="technology-list">
-            <div th:each="book : ${model.bookList}" class="book">
-                <p th:text="${book.getTitle()}"/>
+        <div th:each="book : ${model.bookList}" class="book">
+            <div class="field">
+                <div class="inline">
+                    <p class="title" th:text="${book.getTitle()} "/>
+                    <p class="author" th:text="${book.getAuthorListAsString()}"/>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 </body>

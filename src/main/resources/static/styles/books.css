@@ -1,0 +1,141 @@
+.field{
+    webkit-border-radius: 10px;
+    border-radius: 10px;
+
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 16px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+
+    padding : 2px 15px;
+    background-color: #eeeff0;
+    margin : 5px;
+}
+
+.search_bar{
+    webkit-border-radius: 10px;
+    border-radius: 10px;
+
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 16px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+
+    padding : 15px;
+    margin: 10px 0;
+    background-color: #eeeff0;
+}
+
+
+
+.field{
+    webkit-border-radius: 10px;
+    border-radius: 10px;
+
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 16px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+
+    height: 50px;
+    padding : 3px 15px;
+    background-color: #eeeff0;
+    margin : 5px;
+}
+
+.search_bar{
+    border:none;
+    flex-grow: 2;
+    webkit-border-radius:5px;
+    border-radius: 5px;
+    height: 40px;
+
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 14px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+
+    padding : 15px 30px;
+    background-color: #eeeff0;
+    /*margin : 0 0 0 px;*/
+}
+
+.inline {
+
+    display: flex;
+}
+
+.dropdown{
+margin:auto;
+}
+
+.dropbtn {
+    height: 40px;
+    background-color: #7488A5;
+    color: white;
+    padding: 5px;
+    font-size:13px;
+    border: none;
+    width: 130px;
+    webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0 0 0 10px
+}
+
+.dropdown-content {
+    font-size: 13px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0 0 0 10px;
+padding: auto;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.title{
+    width: 400px;
+}
+.author{
+
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #464F5F;}

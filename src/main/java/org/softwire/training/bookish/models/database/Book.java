@@ -1,18 +1,23 @@
 package org.softwire.training.bookish.models.database;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Book {
 
     private String id;
     private String isbn;
     private String title;
-    private List<Author> authorList;
+    private Set<Author> authorList;
+    private Set<BookCopy> bookCopyList;
+    private int availableBooks;
 
 
     public Book() {
-        authorList = new ArrayList<>();
+        authorList = new HashSet<>();
+        bookCopyList = new HashSet<>();
     }
 
     public String getId() {
@@ -39,40 +44,48 @@ public class Book {
         this.title = title;
     }
 
-    public void addAuthor(Author author){
+    public void addAuthor(Author author) {
+
         authorList.add(author);
+
     }
 
-    public List<Author> getAuthorList() {
+    public void addBookCopy(BookCopy bookCopy) {
+        bookCopy.setAvailable(true);
+        this.bookCopyList.add(bookCopy);
+    }
+
+    public Set<Author> getAuthorList() {
         return authorList;
     }
 
-    public String getAuthorListAsString(){
+    public String getAuthorListAsString() {
         String divider = ", ";
         StringBuilder builder = new StringBuilder();
-        for(Author author : authorList){
-            if(authorList.size() > 0){
+        for (Author author : authorList) {
+            if (authorList.size() > 0) {
                 builder.append(author.getFullName() + divider);
-            }else{
+            } else {
                 builder.append(author.getFullName());
             }
         }
-        if(builder.substring(builder.length() -2, builder.length()).equals(divider)){
-            return builder.substring(0, builder.length()-2);
+        if (builder.substring(builder.length() - 2, builder.length()).equals(divider)) {
+            return builder.substring(0, builder.length() - 2);
         }
         return builder.toString();
     }
 
-    public void setAuthorList(List<Author> authorList) {
-        this.authorList = authorList;
+    public Set<BookCopy> getBookCopyList() {
+        return bookCopyList;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id='" + id + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", title='" + title + '\'' +
-                '}';
+    public int getAvailableBooks() {
+        return (int) bookCopyList.stream()
+                .filter(BookCopy::isAvailable)
+                .count();
+    }
+
+    public void setAuthorList(Set<Author> authorList) {
+        this.authorList = authorList;
     }
 }

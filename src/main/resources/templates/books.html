@@ -52,6 +52,15 @@
                 <div class="inline">
                     <p class="title" th:text="${book.getTitle()} "/>
                     <p class="author" th:text="${book.getAuthorListAsString()}"/>
+                    <div th:if="${book.getAvailableBooks() < 1}" style="margin:auto">
+                        <p th:text="${book.getAvailableBooks()}" class="quantity" style="background-color: red"/>
+                    </div>
+                    <div th:if="${book.getAvailableBooks() > 4}">
+                        <p th:text="${book.getAvailableBooks()}" class="quantity" style="background-color: green"/>
+                    </div>
+                    <div th:if="${book.getAvailableBooks() > 0 && book.getAvailableBooks() < 5}">
+                        <p th:text="${book.getAvailableBooks()}" class="quantity" style="background-color: darkorange"/>
+                    </div>
                 </div>
             </div>
         </div>

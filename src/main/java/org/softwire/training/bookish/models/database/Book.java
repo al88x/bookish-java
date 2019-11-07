@@ -85,6 +85,10 @@ public class Book {
                 .count();
     }
 
+    public int getTotalBooks(){
+        return bookCopyList.size();
+    }
+
     public void setAuthorList(Set<Author> authorList) {
         this.authorList = authorList;
     }

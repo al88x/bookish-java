@@ -48,8 +48,8 @@
 
     <div class="jumbotron">
         <div th:each="book : ${model.bookList}" class="book">
-            <div class="field">
-                <div class="inline">
+            <details class="field">
+                <summary class="inline">
                     <p class="title" th:text="${book.getTitle()} "/>
                     <p class="author" th:text="${book.getAuthorListAsString()}"/>
                     <div th:if="${book.getAvailableBooks() < 1}" style="margin:auto">
@@ -61,8 +61,20 @@
                     <div th:if="${book.getAvailableBooks() > 0 && book.getAvailableBooks() < 5}">
                         <p th:text="${book.getAvailableBooks()}" class="quantity" style="background-color: darkorange"/>
                     </div>
-                </div>
-            </div>
+
+                </summary>
+                    <div class ="book-details">
+                        <div style = "display:flex">
+                            <div style = "flex:5">
+                                <p class="details-text" th:text="'ISBN: ' + ${book.getIsbn()}" ></p>
+                                <p class="details-text" th:text="'Total books: ' + ${book.getTotalBooks()}"></p>
+                                <p class="details-text" th:text="'Books available: ' + ${book.getAvailableBooks()}"></p>
+                            </div>
+                            <p class="reserve-button">Reserve</p>
+                            <p class="edit-button" >Edit book</p>
+                        </div>
+                    </div>
+            </details>
         </div>
     </div>
 </div>

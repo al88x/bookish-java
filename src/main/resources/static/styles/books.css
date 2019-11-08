@@ -107,13 +107,15 @@
 }
 
 .title {
-    width: 450px;
+    width:650px;
     line-height: 35px;
+    flex: 3;
 }
 
 .author {
-    width: 270px;
+    width: 400px;
     line-height: 35px;
+    flex: 2;
 }
 
 .quantity {
@@ -124,6 +126,7 @@
     line-height: 35px;
     height: 35px;
     width: 35px;
+    flex: 1;
 }
 
 .quantity-red {
@@ -134,7 +137,7 @@
     background-color: green;
 }
 
-.field:hover {
+.highlight-on-hover:hover{
     background-color: #ddd;
     cursor: pointer;
 }
@@ -172,6 +175,11 @@ details summary::-webkit-details-marker {
     margin:auto;
 }
 
+reserve-button-link{
+    color: white;
+    text-decoration: none;
+}
+
 .edit-button{
     color: white;
     flex:1;
@@ -182,4 +190,6 @@ details summary::-webkit-details-marker {
     height:40px;
     width:100px;
     margin:auto 10px;
+    text-decoration: none;
 }
+

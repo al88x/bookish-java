@@ -8,16 +8,84 @@ import java.util.Set;
 public class Book {
 
     private String id;
-    private String isbn;
     private String title;
+    private String author;
     private Set<Author> authorList;
+    private String bookCategory;
+    private String createdAt;
+    private String updatedAt;
+    private String slug;
+    private String isbn;
+    private String subtitle;
+    private String subjects;
+    private String coverPhotoUrl;
+    private String numberOfCopies;
     private Set<BookCopy> bookCopyList;
-    private int availableBooks;
 
 
     public Book() {
         authorList = new HashSet<>();
         bookCopyList = new HashSet<>();
+    }
+
+    public String getBookCategoryId() {
+        return bookCategory;
+    }
+
+    public void setBookCategory(String bookCategory) {
+        this.bookCategory = bookCategory;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
+    }
+
+    public String getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(String subjects) {
+        this.subjects = subjects;
+    }
+
+    public String getCoverPhotoUrl() {
+        return coverPhotoUrl;
+    }
+
+    public void setCoverPhotoUrl(String coverPhotoUrl) {
+        this.coverPhotoUrl = coverPhotoUrl;
+    }
+
+    public void setBookCopyList(Set<BookCopy> bookCopyList) {
+        this.bookCopyList = bookCopyList;
     }
 
     public String getId() {
@@ -50,8 +118,15 @@ public class Book {
 
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     public void addBookCopy(BookCopy bookCopy) {
-        bookCopy.setAvailable(true);
         this.bookCopyList.add(bookCopy);
     }
 
@@ -60,19 +135,24 @@ public class Book {
     }
 
     public String getAuthorListAsString() {
+
+
         String divider = ", ";
         StringBuilder builder = new StringBuilder();
-        for (Author author : authorList) {
-            if (authorList.size() > 0) {
-                builder.append(author.getFullName() + divider);
-            } else {
-                builder.append(author.getFullName());
+        if (authorList.size() > 0) {
+            for (Author author : authorList) {
+                if (authorList.size() > 0) {
+                    builder.append(author.getFullName() + divider);
+                } else {
+                    builder.append(author.getFullName());
+                }
             }
+            if (builder.substring(builder.length() - 2, builder.length()).equals(divider)) {
+                return builder.substring(0, builder.length() - 2);
+            }
+            return builder.toString();
         }
-        if (builder.substring(builder.length() - 2, builder.length()).equals(divider)) {
-            return builder.substring(0, builder.length() - 2);
-        }
-        return builder.toString();
+        return "";
     }
 
     public Set<BookCopy> getBookCopyList() {
@@ -85,11 +165,14 @@ public class Book {
                 .count();
     }
 
-    public int getTotalBooks(){
+
+    public int getNumberOfCopies() {
         return bookCopyList.size();
     }
 
     public void setAuthorList(Set<Author> authorList) {
         this.authorList = authorList;
     }
+
+
 }

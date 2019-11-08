@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:href="http://www.w3.org/1999/xhtml">
+
+
+<!--@thymesVar id="model" type="org.softwire.training.bookish.models.page.EditBookPageModel"-->
+
+<head>
+    <title>Bookish - Home</title>
+
+    <link rel="stylesheet" href="/styles/general.css"/>
+    <link rel="stylesheet" href="/styles/navbar.css"/>
+    <link rel="stylesheet" href="/styles/index.css"/>
+    <link rel="stylesheet" href="/styles/books.css"/>
+    <link rel="stylesheet" href="/styles/edit-book.css"/>
+
+</head>
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar">
+    <!-- This element is replaced by the HTML in fragments/navbar.html -->
+</div>
+<div class="container">
+    <form href="/books" method="get" class="inline">
+        <input placeholder="Search books..." name="search" class="search_bar">
+    </form>
+    <form action="/books/save" id="edit-form" method="post" class="jumbotron">
+        <div class="field">
+            <div>
+                <div class="edit-row">
+                    <p class="edit-column">Title:</p>
+                    <input class="edit-input" name="title"></input>
+                </div>
+                <div class="edit-row">
+                    <p class="edit-column">Author:</p>
+                    <input class="edit-input" name="author"></input>
+                </div>
+                <div class="edit-row">
+                    <p class="edit-column">Book Category:</p>
+                    <input class="edit-input" name="bookCategory"
+                    ></input>
+                </div>
+                <div class="edit-row">
+                    <p class="edit-column">Created at:</p>
+                    <input class="edit-input" name="created_at" ></input>
+                </div>
+                <div class="edit-row">
+                    <p class="edit-column">Updated at:</p>
+                    <input class="edit-input" name="updated_at" ></input>
+                </div>
+                <div class="edit-row">
+                    <p class="edit-column">Slug:</p>
+                    <input class="edit-input" name="slug" ></input>
+                </div>
+                <div class="edit-row">
+                    <p class="edit-column">ISBN:</p>
+                    <input class="edit-input" name="isbn" ></input>
+                </div>
+                <div class="edit-row">
+                    <p class="edit-column">Subtitle:</p>
+                    <input class="edit-input" name="subtitle" ></input>
+                </div>
+                <div class="edit-row">
+                    <p class="edit-column">Subjects:</p>
+                    <input class="edit-input" name="subjects" ></input>
+                </div>
+                <div class="edit-row">
+                    <p class="edit-column">Cover photo url:</p>
+                    <input class="edit-input" name="coverPhotoUrl"
+                           ></input>
+                </div>
+            </div>
+        </div>
+        <div class="button-save-cancel">
+            <button type="submit" form="edit-form" class="button" value="Save">Save</button>
+            <a href="/books" class="button">Cancel</a>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+
+
+</html>

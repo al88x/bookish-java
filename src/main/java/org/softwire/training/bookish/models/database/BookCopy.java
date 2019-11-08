@@ -10,6 +10,11 @@ public class BookCopy {
     public BookCopy() {
     }
 
+    public BookCopy(String id, boolean isAvailable) {
+        this.id = id;
+        this.isAvailable = isAvailable;
+    }
+
     public String getId() {
         return id;
     }
@@ -22,7 +27,7 @@ public class BookCopy {
         return isAvailable;
     }
 
-    public void setAvailable(boolean available) {
+    public void setIsAvailable(boolean available) {
         isAvailable = available;
     }
 
@@ -37,5 +42,13 @@ public class BookCopy {
     @Override
     public int hashCode() {
         return Objects.hash(getId());
+    }
+
+    @Override
+    public String toString() {
+        return "BookCopy{" +
+                "id='" + id + '\'' +
+                ", isAvailable=" + isAvailable +
+                '}';
     }
 }

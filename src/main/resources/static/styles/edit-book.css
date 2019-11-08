@@ -1,0 +1,90 @@
+
+.edit-row{
+    display:flex;
+}
+.edit-column{
+    width: 150px;
+    font-size: 14px;
+}
+
+.edit-input{
+    padding-left: 5px;
+    height:25px;
+    width:500px;
+    border:none;
+    margin:auto 0;
+}
+
+.button{
+    flex:1;
+    color: white;
+    border-radius:10px;
+    background-color:  #76a2a2;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:100px;
+    margin:auto;
+}
+
+.button-save-cancel{
+    display: flex;
+    margin:15px 0px 5px;
+}
+
+.button{
+    color: white;
+    flex:1;
+    border-radius:10px;
+    background-color:  #009999;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:100px;
+    margin:auto 10px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #004d4d;
+    cursor: pointer;
+} .delete{
+    background-color: tomato;
+}
+
+  .copy-id{
+      flex: 2;
+  }
+  .available-copy{
+      flex: 1;
+      color: #009999;
+      margin :auto;
+  }
+  .delete-copy{
+      color: white;
+      font-size: 14px;
+      line-height: 30px;
+      flex: 1;
+      background-color: tomato;
+      padding: auto auto;
+      margin: auto;
+      text-align: center;
+      border-radius: 10px;
+      width: 150px;
+      text-decoration: none;
+  }
+
+.delete-copy:hover {
+    color: white;
+    background-color: #004d4d;
+    cursor: pointer;
+
+}
+
+.add-copy{
+    background-color: #009999;
+    width: 600px;
+    height: 50px;
+    color: white;
+    text-decoration: none;
+}

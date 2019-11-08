@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:href="http://www.w3.org/1999/xhtml">
 
 
 <!--@thymesVar id="model" type="org.softwire.training.bookish.models.page.BooksPageModel"-->
@@ -48,10 +48,10 @@
 
     <div class="jumbotron">
         <div th:each="book : ${model.bookList}" class="book">
-            <details class="field">
-                <summary class="inline">
+            <details class="field highlight-on-hover">
+                <summary class="inline ">
                     <p class="title" th:text="${book.getTitle()} "/>
-                    <p class="author" th:text="${book.getAuthorListAsString()}"/>
+                    <p class="author" th:text="${book.getAuthor()}"/>
                     <div th:if="${book.getAvailableBooks() < 1}" style="margin:auto">
                         <p th:text="${book.getAvailableBooks()}" class="quantity" style="background-color: red"/>
                     </div>
@@ -67,15 +67,18 @@
                         <div style = "display:flex">
                             <div style = "flex:5">
                                 <p class="details-text" th:text="'ISBN: ' + ${book.getIsbn()}" ></p>
-                                <p class="details-text" th:text="'Total books: ' + ${book.getTotalBooks()}"></p>
+                                <p class="details-text" th:text="'Total books: ' + ${book.getNumberOfCopies()}"></p>
                                 <p class="details-text" th:text="'Books available: ' + ${book.getAvailableBooks()}"></p>
                             </div>
-                            <p class="reserve-button">Reserve</p>
-                            <p class="edit-button" >Edit book</p>
+                            <div th:if="${book.getAvailableBooks() > 0}"class="reserve-button reserve-button-link">
+                            <a th:href="@{'/students?bookCopyId=' + ${book.getId()}}" class="reserve-button-link">Reserve</a>
+                            </div>
+                            <a th:href="@{'/books/edit?bookId=' + ${book.getId()}}" class="edit-button" >Edit book</a>
                         </div>
                     </div>
             </details>
         </div>
+        <a href="/books/addNewBook"></a>
     </div>
 </div>
 </div>

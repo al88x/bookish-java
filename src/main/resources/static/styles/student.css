@@ -1,0 +1,18 @@
+.student-id{
+    flex:1
+}
+.student-name{
+    flex: 1;
+}
+.checkout{
+    height: 35px;
+    width: 50px;
+    line-height: 35px;
+    padding: auto;
+    text-align: center;
+    background-color: #009999;
+    flex:1;
+}
+student.field{
+    display: flex;
+}
